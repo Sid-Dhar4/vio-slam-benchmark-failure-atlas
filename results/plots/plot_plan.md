@@ -37,3 +37,11 @@ Current MVP plot set:
 - results/plots/trajectories/MH_05_difficult_xy_speeds.png
 - results/plots/trajectories/MH_05_difficult_xy_trajectories.png
 - results/plots/trajectories/MH_05_difficult_xy_xyz.png
+
+## Labeling note
+
+The plotting script creates temporary labeled trajectory paths before calling evo_traj, so the plot legends distinguish:
+
+- groundtruth_SEQUENCE
+- orbslam3_SEQUENCE
+- openvins_SEQUENCE
