@@ -8,6 +8,9 @@ def main() -> None:
     summary_table = Path("results/tables/benchmark_summary.md").read_text().strip()
     plot_paths = sorted(Path("results/plots/trajectories").glob("*_xy_trajectories.png"))
     plot_links = "\n".join(f"- `{path}`" for path in plot_paths)
+    plot_images = "\n\n".join(
+        f"![{path.stem.replace('_', ' ')}]({path})" for path in plot_paths
+    )
 
     readme = """# Reproducible VIO/SLAM Benchmark and Failure Atlas
 
@@ -58,11 +61,21 @@ Main machine-readable results are in `results/metrics.csv`. The summary table be
 
 {summary_table}
 
+## How to read the results
+
+- **APE RMSE SE3 (m)** measures global trajectory error after SE(3) alignment with ground truth. Lower is better.
+- **RPE trans RMSE (m)** measures local relative translation error between nearby poses. Lower is better.
+- **Status** is part of the result: OpenVINS runs produced trajectory/timing files but ended with a repeatable ROS shutdown exception, so they are marked `completed_with_shutdown_exception`.
+- OpenVINS uses Machine Hall start offsets from its ROS serial workflow, while ORB-SLAM3 uses full sequence timestamps. Current evo results use timestamp association over overlapping estimated poses.
+- Runtime values are logged for transparency, but they are not presented as a fair speed benchmark because the backend example pipelines differ.
+
 ## Plots
 
 Trajectory plots were generated with `scripts/make_trajectory_plots.sh`.
 
 {plot_links}
+
+{plot_images}
 
 Additional generated plots include xyz, rpy, and speed plots for each sequence.
 
@@ -121,7 +134,7 @@ The project includes tests for trajectory format utilities, EuRoC conversion, da
 - Add ablations for feature count, dropped frames, timestamp offset, and calibration perturbation.
 - Parse evo result archives automatically into `metrics.csv`.
 - Add APE/RPE over-time plots.
-""".format(summary_table=summary_table, plot_links=plot_links)
+""".format(summary_table=summary_table, plot_links=plot_links, plot_images=plot_images)
 
     Path("README.md").write_text(readme)
     print("Updated README.md")

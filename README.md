@@ -54,6 +54,14 @@ Main machine-readable results are in `results/metrics.csv`. The summary table be
 | openvins | MH_05_difficult | completed_with_shutdown_exception | 1845 | 17.53 | 0.242839 | 0.004271 | bag_start=5; trajectory saved; shutdown LibraryUnloadException observed |
 | orbslam3 | MH_05_difficult | completed | 2082 | 123.69 | 0.075237 | 0.005066 | controlled ORB-SLAM3 stereo-inertial run; bad IMU/reset/lost-frame behavior observed |
 
+## How to read the results
+
+- **APE RMSE SE3 (m)** measures global trajectory error after SE(3) alignment with ground truth. Lower is better.
+- **RPE trans RMSE (m)** measures local relative translation error between nearby poses. Lower is better.
+- **Status** is part of the result: OpenVINS runs produced trajectory/timing files but ended with a repeatable ROS shutdown exception, so they are marked `completed_with_shutdown_exception`.
+- OpenVINS uses Machine Hall start offsets from its ROS serial workflow, while ORB-SLAM3 uses full sequence timestamps. Current evo results use timestamp association over overlapping estimated poses.
+- Runtime values are logged for transparency, but they are not presented as a fair speed benchmark because the backend example pipelines differ.
+
 ## Plots
 
 Trajectory plots were generated with `scripts/make_trajectory_plots.sh`.
@@ -61,6 +69,12 @@ Trajectory plots were generated with `scripts/make_trajectory_plots.sh`.
 - `results/plots/trajectories/MH_01_easy_xy_trajectories.png`
 - `results/plots/trajectories/MH_03_medium_xy_trajectories.png`
 - `results/plots/trajectories/MH_05_difficult_xy_trajectories.png`
+
+![MH 01 easy xy trajectories](results/plots/trajectories/MH_01_easy_xy_trajectories.png)
+
+![MH 03 medium xy trajectories](results/plots/trajectories/MH_03_medium_xy_trajectories.png)
+
+![MH 05 difficult xy trajectories](results/plots/trajectories/MH_05_difficult_xy_trajectories.png)
 
 Additional generated plots include xyz, rpy, and speed plots for each sequence.
 
