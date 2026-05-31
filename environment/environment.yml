@@ -1,0 +1,15 @@
+name: vio-slam-benchmark
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - numpy
+  - pandas
+  - matplotlib
+  - scipy
+  - pyyaml
+  - tqdm
+  - pytest
+  - pip:
+      - evo

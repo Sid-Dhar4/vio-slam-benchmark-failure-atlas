@@ -1,0 +1,26 @@
+FROM vio-slam-backend-base:22.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libglew-dev \
+    libgl1-mesa-dev \
+    libglu1-mesa-dev \
+    libx11-dev \
+    libxrandr-dev \
+    libxinerama-dev \
+    libxcursor-dev \
+    libxi-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN git clone --depth 1 --branch v0.6 https://github.com/stevenlovegrove/Pangolin.git /opt/Pangolin && \
+    cmake -S /opt/Pangolin -B /opt/Pangolin/build \
+      -DCMAKE_BUILD_TYPE=Release \
+      -DCMAKE_INSTALL_PREFIX=/usr/local && \
+    cmake --build /opt/Pangolin/build -j$(nproc) && \
+    cmake --install /opt/Pangolin/build && \
+    ldconfig
+
+WORKDIR /opt/ORB_SLAM3
+
+CMD ["/bin/bash"]

@@ -1,0 +1,10 @@
+# Example local dataset paths.
+# Copy this file to local_paths.yaml if you want machine-specific paths.
+# Do not commit local_paths.yaml.
+
+euroc_root: ~/datasets/euroc
+
+mvp_sequences:
+  - MH_01_easy
+  - MH_03_medium
+  - MH_05_difficult

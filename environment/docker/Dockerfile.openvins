@@ -1,0 +1,27 @@
+FROM osrf/ros:noetic-desktop-full
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    cmake \
+    git \
+    nano \
+    python3-catkin-tools \
+    python3-osrf-pycommon \
+    python3-dev \
+    python3-matplotlib \
+    python3-numpy \
+    python3-psutil \
+    python3-tk \
+    libeigen3-dev \
+    libgoogle-glog-dev \
+    libgflags-dev \
+    libatlas-base-dev \
+    libsuitesparse-dev \
+    libceres-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /catkin_ws
+
+CMD ["/bin/bash"]

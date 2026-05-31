@@ -1,0 +1,27 @@
+dataset: euroc_mav
+modality: stereo_inertial
+
+sequences:
+  - name: MH_01_easy
+    role: sanity_check
+    difficulty: easy
+    canonical_start_s: null
+    canonical_end_s: null
+
+  - name: MH_03_medium
+    role: moderate_case
+    difficulty: medium
+    canonical_start_s: null
+    canonical_end_s: null
+
+  - name: MH_05_difficult
+    role: stress_case
+    difficulty: difficult
+    canonical_start_s: null
+    canonical_end_s: null
+
+fairness_notes:
+  - Do not silently crop one backend differently than another.
+  - If startup frames are skipped, record the exact start/end window here.
+  - Use the same evaluation window for ORB-SLAM3 and OpenVINS.
+  - Do not put generated metrics in the README unless produced by scripts.

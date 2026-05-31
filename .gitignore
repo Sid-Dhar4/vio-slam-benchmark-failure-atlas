@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+.env
+
+# Conda / envs
+.conda/
+env/
+
+# Build artifacts
+build/
+install/
+devel/
+log/
+CMakeFiles/
+CMakeCache.txt
+*.so
+*.a
+*.o
+
+# Large datasets / external code
+/data/
+/datasets/
+/external/
+/third_party/
+*.bag
+*.db3
+*.mcap
+*.zip
+*.tar
+*.tar.gz
+*.7z
+
+# Local logs / machine state
+.local/
+*.swp
+.DS_Store
+
+# Temporary files
+tmp/
+scratch/
+
+# Machine-specific local config files
+configs/datasets/local_paths.yaml
