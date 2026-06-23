@@ -49,6 +49,7 @@ Important scripts:
 Main machine-readable results are in `results/metrics.csv`. The summary table below is generated from `results/tables/benchmark_summary.md`.
 
 Trajectory timestamp coverage is summarized in `results/tables/trajectory_coverage.md`.
+Fair-overlap metrics are summarized in `results/tables/fair_overlap_summary.md`.
 
 Failure-related log patterns are summarized in `results/tables/event_summary.md`.
 

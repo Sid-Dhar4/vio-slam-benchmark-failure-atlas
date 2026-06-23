@@ -69,6 +69,7 @@ Important caveat:
 Because of this, current comparisons should be interpreted over overlapping timestamp regions, not as a perfectly identical full-sequence comparison.
 
 The current trajectory timestamp ranges are summarized in `results/tables/trajectory_coverage.md`.
+The current fair-overlap recomputation is summarized in `results/tables/fair_overlap_summary.md`.
 
 Selected failure-related log patterns are summarized in `results/tables/event_summary.md`.
 
