@@ -1,6 +1,6 @@
 # Failure Atlas
 
-Status: first benchmark draft.
+Status: public benchmark release with fair-overlap metrics, event summaries, failure cards, error timelines, CI, and one-command derived-artifact reproduction.
 
 This failure atlas summarizes observed behavior from ORB-SLAM3 and OpenVINS on three EuRoC Machine Hall visual-inertial sequences.
 
@@ -11,7 +11,8 @@ The goal is not only to report accuracy, but to explain where each estimator str
 - ORB-SLAM3 was run on full EuRoC sequence timestamps.
 - OpenVINS was run through its ROS 1 serial EuRoC workflow using Machine Hall start offsets.
 - OpenVINS used bag_start=40 seconds for MH_01_easy and bag_start=5 seconds for MH_03_medium and MH_05_difficult.
-- Current evo results use timestamp association over overlapping estimated poses.
+- Original metrics report each backend on its available output trajectory.
+- Fair-overlap metrics crop ground truth, ORB-SLAM3, and OpenVINS to the common timestamp interval for each sequence.
 - Runtime numbers should not yet be interpreted as a fair speed comparison because ORB-SLAM3 and OpenVINS were run through different example pipelines.
 - All OpenVINS runs saved trajectory and timing files but ended with a ROS shutdown LibraryUnloadException, so they are marked completed_with_shutdown_exception.
 
@@ -111,10 +112,9 @@ Interpretation:
 - OpenVINS failure/engineering symptoms appeared as repeatable ROS shutdown exceptions after saving outputs.
 - Current runtime numbers should be treated as logged run times, not a fair speed benchmark.
 
-## Next analysis work
+## Future extensions
 
-- Generate trajectory overlay plots for each system and sequence.
-- Add exact commands that generated each metric and plot.
-- Add image/trajectory snapshots for MH_05_difficult.
-- Add a fairness note about OpenVINS start offsets and overlapping timestamp association.
+- Add exact timestamped event markers to the error timeline plots when logs expose reliable event timestamps.
+- Add a third backend such as Basalt or VINS-Fusion.
+- Add demo media combining camera frames, trajectories, error timelines, and failure-event cards.
 - Investigate whether the OpenVINS shutdown exception is caused by ROS image transport plugin unload behavior.
