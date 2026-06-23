@@ -70,6 +70,8 @@ Because of this, current comparisons should be interpreted over overlapping time
 
 The current trajectory timestamp ranges are summarized in `results/tables/trajectory_coverage.md`.
 
+Selected failure-related log patterns are summarized in `results/tables/event_summary.md`.
+
 ## Fair-overlap metrics
 
 A stronger future version should explicitly compute fair-overlap metrics by cropping ground truth, ORB-SLAM3, and OpenVINS trajectories to the same common timestamp interval before running evo.

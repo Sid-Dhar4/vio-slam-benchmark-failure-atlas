@@ -50,6 +50,8 @@ Main machine-readable results are in `results/metrics.csv`. The summary table be
 
 Trajectory timestamp coverage is summarized in `results/tables/trajectory_coverage.md`.
 
+Failure-related log patterns are summarized in `results/tables/event_summary.md`.
+
 | System | Sequence | Status | Poses | Runtime (s) | APE RMSE SE3 (m) | RPE trans RMSE (m) | Notes |
 |---|---|---|---:|---:|---:|---:|---|
 | openvins | MH_01_easy | completed_with_shutdown_exception | 2767 | 23.64 | 0.090810 | 0.002152 | bag_start=40; trajectory saved; shutdown LibraryUnloadException observed |

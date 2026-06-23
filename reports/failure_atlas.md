@@ -21,6 +21,7 @@ See:
 
 - results/metrics.csv
 - results/tables/benchmark_summary.md
+- results/tables/event_summary.md
 
 ## Sequence-level observations
 
