@@ -88,6 +88,24 @@ Additional generated plots include xyz, rpy, and speed plots for each sequence.
 
 Error-timeline plots are available in `results/plots/errors/` and show translational error over sequence time with failure-event count callouts.
 
+![MH 01 easy error timeline](results/plots/errors/MH_01_easy_error_timeline.png)
+
+![MH 03 medium error timeline](results/plots/errors/MH_03_medium_error_timeline.png)
+
+![MH 05 difficult error timeline](results/plots/errors/MH_05_difficult_error_timeline.png)
+
+
+## Diagnostic artifacts
+
+| Artifact | Path | Purpose |
+|---|---|---|
+| Benchmark summary | `results/tables/benchmark_summary.md` | Main ORB-SLAM3 vs OpenVINS metrics table |
+| Trajectory coverage | `results/tables/trajectory_coverage.md` | Shows timestamp coverage and OpenVINS start-offset caveat |
+| Fair-overlap metrics | `results/tables/fair_overlap_summary.md` | Recomputes metrics on common timestamp intervals |
+| Failure event summary | `results/tables/event_summary.md` | Counts selected failure-related log patterns |
+| Failure cards | `reports/failure_cards/` | One-page sequence-level diagnosis cards |
+| Error timelines | `results/plots/errors/` | Translational error over sequence time with event-count callouts |
+
 ## Failure atlas
 
 See `reports/failure_atlas.md` for sequence-level observations and failure notes.
@@ -101,6 +119,9 @@ Observed behavior includes ORB-SLAM3 initialization resets, map resets, bad IMU 
 ## Reproduce
 
 Regenerate derived benchmark artifacts from committed trajectories/logs/results:
+
+This does not rerun ORB-SLAM3 or OpenVINS from raw datasets; backend build/run notes are documented separately.
+
 
 ```bash
 ./scripts/reproduce_results.sh
