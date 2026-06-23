@@ -85,6 +85,8 @@ Trajectory plots were generated with `scripts/make_trajectory_plots.sh`.
 
 Additional generated plots include xyz, rpy, and speed plots for each sequence.
 
+Error-timeline plots are available in `results/plots/errors/` and show translational error over sequence time with failure-event count callouts.
+
 ## Failure atlas
 
 See `reports/failure_atlas.md` for sequence-level observations and failure notes.

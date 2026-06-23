@@ -25,6 +25,9 @@ See:
 - reports/failure_cards/MH_01_easy.md
 - reports/failure_cards/MH_03_medium.md
 - reports/failure_cards/MH_05_difficult.md
+- results/plots/errors/MH_01_easy_error_timeline.png
+- results/plots/errors/MH_03_medium_error_timeline.png
+- results/plots/errors/MH_05_difficult_error_timeline.png
 
 ## Sequence-level observations
 
