@@ -68,6 +68,8 @@ Important caveat:
 
 Because of this, current comparisons should be interpreted over overlapping timestamp regions, not as a perfectly identical full-sequence comparison.
 
+The current trajectory timestamp ranges are summarized in `results/tables/trajectory_coverage.md`.
+
 ## Fair-overlap metrics
 
 A stronger future version should explicitly compute fair-overlap metrics by cropping ground truth, ORB-SLAM3, and OpenVINS trajectories to the same common timestamp interval before running evo.
