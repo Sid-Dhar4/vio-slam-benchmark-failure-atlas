@@ -70,6 +70,17 @@ Failure-related log patterns are summarized in `results/tables/event_summary.md`
 - OpenVINS uses Machine Hall start offsets from its ROS serial workflow, while ORB-SLAM3 uses full sequence timestamps. Current evo results use timestamp association over overlapping estimated poses.
 - Runtime values are logged for transparency, but they are not presented as a fair speed benchmark because the backend example pipelines differ.
 
+## Key failure case: MH_05_difficult
+
+MH_05_difficult is the stress case in this benchmark. ORB-SLAM3 shows bad-IMU and lost-frame evidence but still produces lower aligned fair-overlap APE. OpenVINS shows many static initialization failures and a repeatable ROS shutdown exception after saving outputs.
+
+- ORB-SLAM3 fair-overlap APE: 0.065589 m
+- OpenVINS fair-overlap APE: 0.242839 m
+- ORB-SLAM3 event evidence: bad-IMU reset and lost-frame evidence
+- OpenVINS event evidence: static initialization failures and LibraryUnloadException
+
+See `reports/failure_cards/MH_05_difficult.md`.
+
 ## Plots
 
 Trajectory plots were generated with `scripts/make_trajectory_plots.sh`.
@@ -162,7 +173,7 @@ The project includes tests for trajectory format utilities, EuRoC conversion, da
 - OpenVINS runs use Machine Hall start offsets from the ROS serial workflow; ORB-SLAM3 runs use full sequence timestamps.
 - Current evo comparisons use timestamp association over overlapping estimated poses, so plots and metrics should be interpreted with the start-offset caveat.
 - OpenVINS runs produced usable outputs but ended with a repeatable shutdown `LibraryUnloadException`.
-- Runtime values are logged, but they are not yet a fair speed benchmark because the backend example pipelines differ.
+- Runtime values are logged for transparency, but backend example pipelines differ, so they should not be interpreted as a fair speed benchmark.
 - Metrics are recorded in `metrics.csv`; future work should parse evo result archives automatically.
 - Raw EuRoC datasets and third-party backend source repositories are kept outside this repository.
 
@@ -173,4 +184,5 @@ The project includes tests for trajectory format utilities, EuRoC conversion, da
 - Add a third backend such as Basalt or VINS-Fusion.
 - Add ablations for feature count, dropped frames, timestamp offset, and calibration perturbation.
 - Parse evo result archives automatically into `metrics.csv`.
-- Add APE/RPE over-time plots.
+- Add timestamped event markers to error timeline plots when reliable event timestamps are available.
+- Add demo media combining camera frames, trajectories, error timelines, and failure-event cards.

@@ -75,18 +75,19 @@ Selected failure-related log patterns are summarized in `results/tables/event_su
 
 ## Fair-overlap metrics
 
-A stronger future version should explicitly compute fair-overlap metrics by cropping ground truth, ORB-SLAM3, and OpenVINS trajectories to the same common timestamp interval before running evo.
+This repository includes fair-overlap metrics in `results/tables/fair_overlap_summary.md`.
 
-The intended fair-overlap process is:
+The original benchmark table reports each backend on its available output trajectory. The fair-overlap table crops ground truth, ORB-SLAM3, and OpenVINS to the common timestamp interval for each sequence before recomputing trajectory error.
 
-1. Find the common timestamp interval shared by the compared trajectories.
-2. Crop all trajectories to that interval.
-3. Run evo APE and RPE on the cropped trajectories.
-4. Report both original metrics and fair-overlap metrics.
+This matters because OpenVINS starts later than ground truth and ORB-SLAM3 in the current EuRoC Machine Hall workflow. Reporting both original metrics and fair-overlap metrics makes the start-offset caveat explicit instead of hiding it.
+
+Current fair-overlap results show ORB-SLAM3 with lower aligned APE on all three Machine Hall sequences. OpenVINS remains competitive on the local delta metric for MH_01_easy and MH_05_difficult.
+
+The fair-overlap local delta metric is a timestamp-associated frame-to-frame translation consistency metric, not a full replacement for evo RPE.
 
 ## Runtime caveat
 
-Runtime is logged for transparency, but it is not yet a fair speed benchmark.
+Runtime is logged for transparency, but it should not be interpreted as a fair speed benchmark.
 
 Reasons:
 
@@ -105,7 +106,7 @@ This is reported honestly because an estimator can produce useful outputs while 
 
 ## Interview defense summary
 
-I built a reproducible VIO/SLAM benchmark comparing ORB-SLAM3 and OpenVINS on EuRoC Machine Hall sequences. I converted ground truth and backend estimates into TUM trajectory format, evaluated them with evo using APE and RPE, generated trajectory plots, logged runtime, and documented backend-specific failure behavior.
+I built a reproducible VIO/SLAM failure atlas comparing ORB-SLAM3 and OpenVINS on EuRoC Machine Hall sequences. I converted ground truth and backend estimates into TUM trajectory format, evaluated global and local trajectory error, generated trajectory and error-timeline plots, extracted failure-related log events, and documented backend-specific failure behavior.
 
-I report both global aligned error and local relative error because they measure different failure modes. I also explicitly document the caveats: OpenVINS uses Machine Hall start offsets, the current comparison uses timestamp association over overlapping poses, and runtime is not yet a fair speed benchmark because the backend pipelines differ.
+I report both global aligned error and local relative error because they measure different failure modes. I also explicitly document the caveats: OpenVINS uses Machine Hall start offsets, the current comparison uses timestamp association over overlapping poses, and runtime is not a fair speed benchmark because the backend pipelines differ.
 
