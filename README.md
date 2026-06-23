@@ -100,6 +100,12 @@ Observed behavior includes ORB-SLAM3 initialization resets, map resets, bad IMU 
 
 ## Reproduce
 
+Regenerate derived benchmark artifacts from committed trajectories/logs/results:
+
+```bash
+./scripts/reproduce_results.sh
+```
+
 Run tests:
 
 ```bash
