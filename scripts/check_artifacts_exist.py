@@ -17,6 +17,8 @@ REQUIRED_FILES = [
     Path("results/plots/errors/MH_03_medium_error_timeline.png"),
     Path("results/plots/errors/MH_05_difficult_error_timeline.png"),
     Path("scripts/reproduce_results.sh"),
+    Path("media/vio_failure_teaser.png"),
+    Path("media/vio_failure_teaser.gif"),
 ]
 
 TEXT_EXPECTATIONS = {
