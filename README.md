@@ -1,5 +1,8 @@
 # Reproducible VIO/SLAM Benchmark and Failure Atlas
 
+[![tests](https://github.com/Sid-Dhar4/vio-slam-benchmark-failure-atlas/actions/workflows/tests.yml/badge.svg)](https://github.com/Sid-Dhar4/vio-slam-benchmark-failure-atlas/actions/workflows/tests.yml)
+
+
 ## Summary
 
 This repository contains a reproducible benchmark comparing ORB-SLAM3 and OpenVINS on EuRoC Machine Hall visual-inertial sequences. The project automates dataset checks, trajectory conversion to TUM format, evo APE/RPE evaluation, runtime logging, trajectory visualization, and sequence-level failure analysis.
