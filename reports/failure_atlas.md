@@ -22,6 +22,9 @@ See:
 - results/metrics.csv
 - results/tables/benchmark_summary.md
 - results/tables/event_summary.md
+- reports/failure_cards/MH_01_easy.md
+- reports/failure_cards/MH_03_medium.md
+- reports/failure_cards/MH_05_difficult.md
 
 ## Sequence-level observations
 

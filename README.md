@@ -89,6 +89,8 @@ Additional generated plots include xyz, rpy, and speed plots for each sequence.
 
 See `reports/failure_atlas.md` for sequence-level observations and failure notes.
 
+Sequence-level failure cards are available in `reports/failure_cards/` for MH_01_easy, MH_03_medium, and MH_05_difficult.
+
 See `docs/result_interpretation.md` for metric definitions, alignment caveats, timestamp-overlap interpretation, and technical defense notes.
 
 Observed behavior includes ORB-SLAM3 initialization resets, map resets, bad IMU flag behavior, and lost-frame behavior. OpenVINS produced trajectory and timing files on all three sequences, but each run ended with a ROS shutdown `LibraryUnloadException`; those runs are marked `completed_with_shutdown_exception`.
