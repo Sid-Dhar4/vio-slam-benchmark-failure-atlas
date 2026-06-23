@@ -3,7 +3,7 @@
 [![tests](https://github.com/Sid-Dhar4/vio-slam-benchmark-failure-atlas/actions/workflows/tests.yml/badge.svg)](https://github.com/Sid-Dhar4/vio-slam-benchmark-failure-atlas/actions/workflows/tests.yml)
 
 
-![VIO/SLAM Failure Atlas dashboard](media/vio_failure_teaser.png)
+[![VIO/SLAM Failure Atlas dashboard](media/vio_failure_teaser.png)](media/vio_failure_teaser.gif)
 
 Animated walkthrough: `media/vio_failure_teaser.gif`.
 
